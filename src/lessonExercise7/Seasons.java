@@ -12,41 +12,17 @@ public class Seasons {
         String month = (scan.nextLine()).toLowerCase();
 
         switch (month) {
-            case "january":
+            case "january", "february", "december":
                 System.out.println("Winter");
                 break;
-            case "february":
-                System.out.println("Winter");
-                break;
-            case "mars":
+            case "mars", "april", "may":
                 System.out.println("Spring");
                 break;
-            case "april":
-                System.out.println("Spring");
-                break;
-            case "may":
-                System.out.println("Spring");
-                break;
-            case "june":
+            case "june", "july", "august":
                 System.out.println("Summer");
                 break;
-            case "july":
-                System.out.println("Summer");
-                break;
-            case "august":
-                System.out.println("Summer");
-                break;
-            case "september":
+            case "september", "october", "november":
                 System.out.println("Fall");
-                break;
-            case "october":
-                System.out.println("Fall");
-                break;
-            case "november":
-                System.out.println("Fall");
-                break;
-            case "december":
-                System.out.println("Winter");
                 break;
             default:
                 System.out.println(month + " is not a month!");
