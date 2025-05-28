@@ -9,9 +9,9 @@ public class Weekdays {
         Scanner scan = new Scanner(System.in);
 
         System.out.print("Enter a number between 1-7: ");
-        int option = scan.nextInt();
+        int operator = scan.nextInt();
 
-        switch (option) {
+        switch (operator) {
             case 1:
                 System.out.println("Monday");
                 break;
