@@ -22,14 +22,14 @@ public class WordCounter {
 
         //if the given line of input doesn't contain the word "stop", do:
         if (!input.contains("stop")) {
-            //each line of text adds is a row
+            //whether you type anything except for "stop" or just skip to next line, a row will be added
             rows++;
 
             //first for-loop counts amount of characters from "input"
             //The commented code is an addition that does not count whitespaces as characters
             for (int i = 0; i < input.length(); i++) {
                 //char c = input.charAt(i);
-//                //if the character is a whitespace, do not count them
+                  //if the character is a whitespace, do not count them
 //                if (c != ' ') {
 //                    this.characters++;
 //                }
