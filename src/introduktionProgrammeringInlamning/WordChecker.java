@@ -114,4 +114,20 @@ public class WordChecker {
         //Assert
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testLongestWord() {
+        //Arrange
+        WordCounter counter = new WordCounter();
+
+        //Act
+        counter.increment("Hejsan allihopa");
+        counter.increment("idag ska vi åka till legoland");
+        counter.increment("legoland väster om Köpenhamn i Billund");
+        String actual = counter.getLongestWord();
+        String expected = "Köpenhamn";
+
+        //Assert
+        assertEquals(expected, actual);
+    }
 }
