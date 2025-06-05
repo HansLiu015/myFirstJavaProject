@@ -17,10 +17,6 @@ public class WordCounter {
     //takes a String "input" and counts amount of characters, rows and words as well as stores the longest word, while also checking if the user typed "stop"
     public void increment(String input) {
 
-        //cleans the "input" of all consecutive spaces
-        input = input.replaceAll("\\s+", " ");
-        //"\\s+" is a regular expression that matches one or more whitespace, and then replaces it with a singular whitespace
-
         //Store all the words from "input", separated by a whitespace in the array "arrayOfWords"
         String[] arrayOfWords = input.split("\\s+");
 
@@ -58,6 +54,13 @@ public class WordCounter {
         } else {    //if input is "stop", changes the boolean "stop" to true
             stop = true;
         }
+    }
+
+    public String removeExcessSpaces(String input) {
+        //cleans the "input" of all consecutive spaces
+        input = input.replaceAll("\\s+", " ");
+        //"\\s+" is a regular expression that matches one or more whitespace, and then replaces it with a singular whitespace
+        return input;
     }
 
     public String getLongestWord() {
