@@ -19,5 +19,7 @@ public class WordTyper {
         System.out.println("Amount of words: " + words.getWordCount());
         System.out.println("Amount of characters: " + words.getCharacterCount());
         System.out.println("Longest word: " + words.getLongestWord());
+
+        scan.close();
     }
 }
