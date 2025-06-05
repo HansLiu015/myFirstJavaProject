@@ -43,7 +43,7 @@ public class WordChecker {
         //Act
         counter.increment("Det här är en mening med en massa tecken");
         int actual = counter.getCharacterCount();
-        int expected = 32;
+        int expected = 40;
 
         //Assert
         assertEquals(expected, actual);

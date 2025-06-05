@@ -19,7 +19,7 @@ public class Logic {
                 result = division(first, second);
                 break;
             default:
-                System.out.println("Error, invalid operator!");
+                System.out.println("Error, invalid operation!");
                 break;
         }
         return result;

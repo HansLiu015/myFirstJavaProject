@@ -29,14 +29,15 @@ public class WordCounter {
             //each line of text adds is a row
             rows++;
 
-            //first for-loop counts amount of characters from "input". Does not count whitespaces
+            //first for-loop counts amount of characters from "input"
+            //The commented code is an addition that does not count whitespaces as characters
             for (int i = 0; i < input.length(); i++) {
-                char c = input.charAt(i);
-
-                //if the character is a whitespace, do not count them
-                if (c != ' ') {
-                    this.characters++;
-                }
+                //char c = input.charAt(i);
+//                //if the character is a whitespace, do not count them
+//                if (c != ' ') {
+//                    this.characters++;
+//                }
+                this.characters++;
             }
 
             //as long as the input isn't just a whitespace, empty or contains the word "stop", updates the word counter
