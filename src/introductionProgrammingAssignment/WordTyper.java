@@ -1,4 +1,4 @@
-package introduktionProgrammeringInlamning;
+package introductionProgrammingAssignment;
 
 import java.util.Scanner;
 

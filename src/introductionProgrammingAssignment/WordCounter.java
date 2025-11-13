@@ -1,4 +1,4 @@
-package introduktionProgrammeringInlamning;
+package introductionProgrammingAssignment;
 
 public class WordCounter {
 
