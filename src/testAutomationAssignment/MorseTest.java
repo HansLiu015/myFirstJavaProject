@@ -34,6 +34,42 @@ public class MorseTest {
     }
 
     @Test
+    public void lastCharToMorse() {
+        MorseLogic character = new MorseLogic();
+        String input = "Z";
+        character.encryptText(input);
+
+        String expected = "--..";
+        String actual = character.getOutput();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void lastMorseToChar() {
+        MorseLogic morse = new MorseLogic();
+        String input = "--..";
+        morse.decipherMorse(input);
+
+        String expected = "Z";
+        String actual = morse.getOutput();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void checkBlankSpace() {
+        MorseLogic test = new MorseLogic();
+        String input = "";
+        test.checkInput(input);
+
+        String expected = null;
+        String actual = test.checkInput(input);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void checkAlfabet() {
         MorseLogic text = new MorseLogic();
         String input = "this is a string using only alfabet";
