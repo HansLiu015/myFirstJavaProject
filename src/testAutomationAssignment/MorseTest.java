@@ -1,88 +1,119 @@
 package testAutomationAssignment;
 
-import java.util.HashMap;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class MorseTest {
 
-    private String alfabet, morse;
-    private String output = "";
-    private String[] alfaArray, morseArray;
+    @Test
+    public void charToMorse() {
+        //Arrange
+        MorseLogic character = new MorseLogic();
+        String input = "A";
+        character.encryptText(input);
 
-    private HashMap<String, String> toMorse = new HashMap<>();
-    private HashMap<String, String> toText = new HashMap<>();
+        //Act
+        String expected = ".-";
+        String actual = character.getOutput();
 
-    public MorseTest() {
-        this.alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        this.morse = ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --..";
-        this.alfaArray = alfabet.split("");
-        this.morseArray = morse.split(" ");
-
-        for (int i = 0; i < alfaArray.length; i++) {
-            this.toMorse.put(alfaArray[i], morseArray[i]);
-            this.toText.put(morseArray[i], alfaArray[i]);
-        }
+        //Assert
+        assertEquals(expected, actual);
     }
 
-    public String checkInput(String input) {
-        String type = null;
-        int sameLength = 0;
-        String[] check;
+    @Test
+    public void morseToChar() {
+        MorseLogic morse = new MorseLogic();
+        String input = ".-";
+        morse.decipherMorse(input);
 
-        if (input.contains(".") || input.contains("-")) {
-            check = input.split("\\s+");
-        } else {
-            check = input.toUpperCase().replace(" ", "").split("");
-        }
+        String expected = "A";
+        String actual = morse.getOutput();
 
-        for (int i = 0; i < check.length; i++) {
-            for (int j = 0; j < morseArray.length; j++) {
-                if (check[i].equals(morseArray[j])) {
-                    sameLength++;
-                }
-            }
-        }
-
-        if (sameLength == check.length) {
-            type = "morse";
-        }
-
-        sameLength = 0;
-
-        for (int i = 0; i < check.length; i++) {
-            for (int j = 0; j < alfaArray.length; j++) {
-                if (check[i].equals(alfaArray[j])) {
-                    sameLength++;
-                }
-            }
-        }
-
-        if (sameLength == check.length) {
-            type = "text";
-        }
-
-        return type;
+        assertEquals(expected, actual);
     }
 
-    public void decipherMorse(String input) {
-        String[] chars = input.split("\\s+");
+    @Test
+    public void checkAlfabet() {
+        MorseLogic text = new MorseLogic();
+        String input = "this is a string using only alfabet";
+        text.checkInput(input);
 
-        for (int i = 0; i < chars.length; i++) {
-            this.output += toText.get(chars[i]);
-        }
+        String expected = "text";
+        String actual = text.checkInput(input);
+
+        assertEquals(expected, actual);
     }
 
-    public void encryptText(String input) {
-        String[] chars = input.toUpperCase().replace(" ", "").split("");
+    @Test
+    public void checkMorse() {
+        MorseLogic text = new MorseLogic();
+        String input = "-- --- .-. ... . -.-. --- -.. .";
+        text.checkInput(input);
 
-        for (int i = 0; i < chars.length; i++) {
-            this.output += toMorse.get(chars[i]);
-            if (i != chars.length-1) {
-                this.output += " ";
-            }
-        }
+        String expected = "morse";
+        String actual = text.checkInput(input);
+
+        assertEquals(expected, actual);
     }
 
-    public String getOutput() {
-        return output;
+    @Test
+    public void checkNull() {
+        MorseLogic text = new MorseLogic();
+        String input = "hello! I slept 8 hours today.";
+        text.checkInput(input);
+
+        String expected = null;
+        String actual = text.checkInput(input);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void wordToMorse() {
+        MorseLogic text = new MorseLogic();
+        String input = "Hasse";
+        text.encryptText(input);
+
+        String expected = ".... .- ... ... .";
+        String actual = text.getOutput();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void morseToWord() {
+        MorseLogic morse = new MorseLogic();
+        String input = "... - . .- -.-";
+        morse.decipherMorse(input);
+
+        String expected = "STEAK";
+        String actual = morse.getOutput();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void textToMorse() {
+        MorseLogic text = new MorseLogic();
+        String input = "today i want to bake some bread";
+        text.encryptText(input);
+
+        String expected = "- --- -.. .- -.-- .. .-- .- -. - - --- -... .- -.- . ... --- -- . -... .-. . .- -..";
+        String actual = text.getOutput();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void morseToText() {
+        MorseLogic morse = new MorseLogic();
+        String input = ".... . .-.. .-.. --- .-- --- .-. .-.. -..";
+        morse.decipherMorse(input);
+
+        String expected = "HELLOWORLD";
+        String actual = morse.getOutput();
+
+        assertEquals(expected, actual);
     }
 }

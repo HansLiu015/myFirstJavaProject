@@ -1,6 +1,5 @@
 package testAutomationAssignment;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class MorseMain {
@@ -11,7 +10,7 @@ public class MorseMain {
         int errors = 0;
         boolean noError = false;
 
-        MorseTest text = new MorseTest();
+        MorseLogic text = new MorseLogic();
 
         while (!noError) {
             try {
